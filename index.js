@@ -187,3 +187,23 @@
 
 // const result = calcTotalPrice(stones, 'Изумруд');
 // console.log(result);
+
+
+/**
+ *? Напишіть функцію updateObject, яка приймає об'єкт та ім'я ключа,
+ *? який треба видалити.
+ *? повертає новий об'єкт без вказаного параметра
+ *? Очікуваний результат updateObject({a: 1, b: 2, c: 3}, 'b') => {a: 1, c: 3}
+ *? https://coderoad.ru/208105/%D0%9A%D0%B0%D0%BA-%D1%83%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%BE-%D0%B8%D0%B7-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0-JavaScript
+ */
+
+const someObj = {a: 1, b: 2, c: 3};
+ function updateObject(obj, key)
+ {
+  const newObj = {...obj};
+  delete newObj[key];
+  // console.log(newObj);
+  return newObj;
+ }
+ console.log(updateObject(someObj, "b"));
+ console.log(someObj);
