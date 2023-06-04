@@ -158,7 +158,6 @@
 // }
 // console.log(callSevery(someObj));
 
-
 /**
  *? Напишіть ф-цію calcTotalPrice(someStones, stonesName),
  *? яка приймає масив об'єктів та
@@ -175,10 +174,10 @@
 // ];
 
 // function calcTotalPrice(someStones, stonesName) {
-  
+
 //   for (const stone of someStones) {
 //     const { name, price, quantity } = stone;
-    
+
 //     if (name === stonesName) {
 //       return price * quantity;
 //     }
@@ -187,7 +186,6 @@
 
 // const result = calcTotalPrice(stones, 'Изумруд');
 // console.log(result);
-
 
 /**
  *? Напишіть функцію updateObject, яка приймає об'єкт та ім'я ключа,
@@ -208,34 +206,47 @@
 //  console.log(updateObject(someObj, "b"));
 //  console.log(someObj);
 
-
 ///**
 // *? Напишіть функцію, яка приймає массив об'єктів і повертає новий массив
 // *? Зробіть знижку 20 % на всі фрукти у масиві
 // *? Надайте ід для кожного продукту
 // */
 
-const fruits = [
-  { name: "apple", price: 200 },
-  { name: "orange", price: 300 },
-  { name: "grapes", price: 750 },
-];
+// const fruits = [
+//   { name: "apple", price: 200 },
+//   { name: "orange", price: 300 },
+//   { name: "grapes", price: 750 },
+// ];
 
+// function apdateFruits(arr) {
+//     const newArr = [];
+//     let id = 0;
+//     for (const fruit of fruits) {
+//         id += 1;
+//         const newFruit = {
+//             ...fruit,
+//             id,
+//             price: fruit.price * 0.8,
+//         };
 
-function apdateFruits(arr) {
-    const newArr = [];
-    let id = 0;
-    for (const fruit of fruits) {
-        id += 1;
-        const newFruit = {
-            ...fruit,
-            id,
-            price: fruit.price * 0.8,
-        };
-        
-        newArr.push(newFruit);
-        }
-      return newArr;
-};
+//         newArr.push(newFruit);
+//         }
+//       return newArr;
+// };
 
-console.log(apdateFruits(fruits));;
+// console.log(apdateFruits(fruits));;
+
+// напиши код який із массиву arr видаляє елемент foo.
+// розвертає цей массив
+// і повертає рядок js is the best
+// вхідний массив не має змінюватись (мутується)
+
+const arr = ["best", "the", "foo", "is", "js"];
+
+let newArr = [...arr];
+newArr.indexOf("foo");
+
+newArr.splice(newArr.indexOf("foo"), 1);
+newArr.reverse();
+const newString = newArr.join(" ");
+console.log(newString);
