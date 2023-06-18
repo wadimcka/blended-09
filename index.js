@@ -241,12 +241,176 @@
 // і повертає рядок js is the best
 // вхідний массив не має змінюватись (мутується)
 
-const arr = ["best", "the", "foo", "is", "js"];
+// const arr = ["best", "the", "foo", "is", "js"];
 
-let newArr = [...arr];
-newArr.indexOf("foo");
+// let newArr = [...arr];
+// newArr.indexOf("foo");
 
-newArr.splice(newArr.indexOf("foo"), 1);
-newArr.reverse();
-const newString = newArr.join(" ");
-console.log(newString);
+// newArr.splice(newArr.indexOf("foo"), 1);
+// newArr.reverse();
+// const newString = newArr.join(" ");
+// console.log(newString);
+
+///**
+// *? Напишіть функцію, яка приймає массив об'єктів і повертає новий массив
+// *? Зробіть знижку 20 % на всі фрукти у масиві
+// *? Надайте ід для кожного продукту
+// */
+
+// const fruits = [
+//   { name: "apple", price: 200 },
+//   { name: "orange", price: 300 },
+//   { name: "grapes", price: 750 },
+// ];
+
+// const updateFruits = (arr) =>
+//   arr.map((fruit, idx) => ({
+//     ...fruit,
+//     price: fruit.price * 0.8,
+//     id: idx + 1,
+//   }));
+// console.log(updateFruits(fruits));
+
+/**
+ *? З об'єкту concerts потрібно отримати масив
+ *? в якому будуть лише імена міст.
+ *? З масиву потрібно прибрати міста, в яких концерт уже пройшов і
+ *? відсортувати їх у хронологічному порядку.
+ *? Результат вивести у консоль.
+ *? Очікуваний результат ["Умань", "Харків", "Одеса"]
+ */
+// const concerts = {
+//   Київ: new Date("2024-04-01"),
+//   Умань: new Date("2023-07-02"),
+//   Вінниця: new Date("2020-04-21"),
+//   Одеса: new Date("2023-07-15"),
+//   Хмельницький: new Date("2020-04-18"),
+//   Харків: new Date("2023-07-10"),
+// };
+
+// function sortConcerts(obj) {
+//   const array = Object.keys(obj);
+//   return array
+//     .filter((concert) => obj[concert] > new Date())
+//     .sort((a, b) => obj[a] - obj[b]);
+// }
+
+// console.log(sortConcerts(concerts));
+
+//TODO:==============================================
+/**
+*? Поверніть об'єкт, в якому вказано кількість тегів.
+*? Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
+
+ */
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// function countTwits(array) {
+//   return array
+//     .flatMap((item) => item.tags)
+//     .reduce((acc, item) => {
+//       return { ...acc, [item]: acc.hasOwnProperty([item]) ? acc[item] + 1 : 1 };
+//     }, {});
+// }
+
+// console.log(countTwits(tweets));
+//TODO:=============================================
+
+/**
+ *? Напиши клас Client який створює об'єкт
+ *? з ​​властивостями login email
+ *? Оголоси приватні властивості #login #email,
+ *? доступ до яких зроби через геттер та сеттер login email
+ */
+// class Client {
+//   #login;
+//   #email;
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get login() {
+//     return this.#login;
+//   }
+
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// const user = new Client("user", "email@email.com");
+// console.log(user);
+// user.email = "mail@mail.com";
+// console.log(user.email);
+//TODO:=============================================
+/**
+ *? Напиши клас Notes який управляє колекцією нотаток у
+ *? властивості items.
+ *? Нотатка - це об'єкт із властивостями text і priority.
+ *? Додай класу статичний метод Priority,
+ *? який буде повертати об'єкт із пріоритетами.
+ *? Додай методи addNote(note), removeNote(text)
+ *? updatePriority(text, newPriority)
+ */
+// static Priority() {
+//     return {
+//       HIGHT: "hight",
+//       LOW: "low",
+//     };
+//   }
+
+// class Notes {
+//   static Priority() {
+//     return {
+//       HIGHT: "hight",
+//       LOW: "low",
+//     };
+//   }
+//   #findIdx(text) {
+//     return this.items.findIndex((item) => item.text === text);
+//   }
+
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+//   removeNote(text) {
+//     const idx = this.#findIdx(text);
+
+//     if (idx !== -1) {
+//       this.items.splice(idx, 1);
+//     }
+//   }
+//   updatePriority(text, newPriority) {
+//     const idx = this.#findIdx(text);
+//     if (idx !== -1) {
+//       this.items[idx].priority = newPriority;
+//     }
+//   }
+// }
+
+// const newNote = new Notes();
+
+// newNote.addNote({ text: "qwe", priority: Notes.Priority().HIGHT });
+// newNote.addNote({ text: "erte", priority: Notes.Priority().HIGHT });
+// newNote.addNote({ text: "zfgdf", priority: Notes.Priority().HIGHT });
+// newNote.removeNote("ioupou");
+// newNote.updatePriority("livsnzdzdfsl", Notes.Priority().LOW);
+// console.log(Notes.prototype);
