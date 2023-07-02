@@ -42,6 +42,21 @@
 і кнопка набуває початкового вигляду.
 */
 
+const inputEl = document.querySelector('#passwordInput');
+const btnEl = document.querySelector('#passwordButton');
+
+btnEl.addEventListener('click', onBtnClick);
+
+function onBtnClick() {
+    if (btnEl.textContent === "Приховати") {
+        inputEl.setAttribute('type', 'password');
+        btnEl.textContent = "Розкрити";
+    } else {
+        inputEl.setAttribute('type', 'text');
+        btnEl.textContent = "Приховати";
+    }
+}
+
 //TODO:==============================================
 /*
 Завдання 4
