@@ -16,6 +16,7 @@
 //   alert("Не знаете? ECMAScript!");
 // }
 
+
 /**
  *? Напишіть цикл, який виводить у консоль
  *? числа  від max до min  за спаданням
@@ -414,3 +415,4 @@
 // newNote.removeNote("ioupou");
 // newNote.updatePriority("livsnzdzdfsl", Notes.Priority().LOW);
 // console.log(Notes.prototype);
+
