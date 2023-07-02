@@ -63,29 +63,29 @@
 Кнопка "Зменшити" робить квадрат менше на 10 пікселів,  "Збільшити" - більше на 10 пікселів.
 */
 
-const refs = {
-  decreaseBtn: document.getElementById("decrease"),
-  increaseBtn: document.getElementById("increase"),
-  divBox: document.getElementById("box"),
-};
+// const refs = {
+//   decreaseBtn: document.getElementById("decrease"),
+//   increaseBtn: document.getElementById("increase"),
+//   divBox: document.getElementById("box"),
+// };
 
-const { decreaseBtn, increaseBtn, divBox } = refs;
+// const { decreaseBtn, increaseBtn, divBox } = refs;
 
-function onDecrBtnClick() {
-  const boxSize = parseInt(getComputedStyle(divBox).width);
-  divBox.style.width = `${boxSize - 10}px`;
-  divBox.style.height = `${boxSize - 10}px`;
+// function onDecrBtnClick() {
+//   const boxSize = parseInt(getComputedStyle(divBox).width);
+//   divBox.style.width = `${boxSize - 10}px`;
+//   divBox.style.height = `${boxSize - 10}px`;
 
-}
+// }
 
-function onIncrBtnClick() {
-  const boxSize = parseInt(getComputedStyle(divBox).width);
-  divBox.style.width = `${boxSize + 10}px`;
-  divBox.style.height = `${boxSize + 10}px`;
-}
+// function onIncrBtnClick() {
+//   const boxSize = parseInt(getComputedStyle(divBox).width);
+//   divBox.style.width = `${boxSize + 10}px`;
+//   divBox.style.height = `${boxSize + 10}px`;
+// }
 
-decreaseBtn.addEventListener("click", onDecrBtnClick);
-increaseBtn.addEventListener("click", onIncrBtnClick);
+// decreaseBtn.addEventListener("click", onDecrBtnClick);
+// increaseBtn.addEventListener("click", onIncrBtnClick);
 
 //TODO:==============================================
 /*
@@ -99,7 +99,15 @@ increaseBtn.addEventListener("click", onIncrBtnClick);
 Натиснувши кнопку "Подвоювати", збільшити значення
 у кожному елементі списку у 2 рази
 */
+const btnEl = document.querySelector("#double");
+btnEl.addEventListener("click", onBtnClick);
+const liElements = document.querySelectorAll(".listItem");
 
+function onBtnClick() {
+  liElements.forEach((element) => {
+    element.textContent = BigInt(element.textContent) ** 2n;
+  });
+}
 //TODO:==============================================
 /*
 Завдання 7
