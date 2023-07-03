@@ -99,15 +99,15 @@
 Натиснувши кнопку "Подвоювати", збільшити значення
 у кожному елементі списку у 2 рази
 */
-const btnEl = document.querySelector("#double");
-btnEl.addEventListener("click", onBtnClick);
-const liElements = document.querySelectorAll(".listItem");
+// const btnEl = document.querySelector("#double");
+// btnEl.addEventListener("click", onBtnClick);
+// const liElements = document.querySelectorAll(".listItem");
 
-function onBtnClick() {
-  liElements.forEach((element) => {
-    element.textContent = BigInt(element.textContent) ** 2n;
-  });
-}
+// function onBtnClick() {
+//   liElements.forEach((element) => {
+//     element.textContent = BigInt(element.textContent) ** 2n;
+//   });
+// }
 //TODO:==============================================
 /*
 Завдання 7
@@ -117,3 +117,27 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/MouseEvent
 https://developer.mozilla.org/ru/docs/Web/API/MouseEvent/pageX
 https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageY
 */
+
+const divOut = document.querySelector(".outerCircle");
+
+//? if was mouseup then delete eventListener mousemove on window
+window.addEventListener("mouseup", () => {
+  window.removeEventListener("mousemove", onMouseMove);
+  divOut.style.position = "static";
+});
+
+//? when div is clicked
+divOut.addEventListener("mousedown", onDivOutClick);
+function onDivOutClick() {
+  window.addEventListener("mousemove", onMouseMove);
+}
+
+//? when the div is clicked and mouse is moving
+function onMouseMove(e) {
+  const mouseCordsX = e.pageX;
+  const mouseCordsY = e.pageY;
+
+  divOut.style.position = "absolute";
+  divOut.style.left = mouseCordsX + "px";
+  divOut.style.top = mouseCordsY + "px";
+}
